@@ -1,115 +1,104 @@
-Christophe-Marie Duquesne
+Aron Sarmasi
 =========================
 
 ----
 
->  Specialties: C++, Python, Linux, Operations Research\
->  Doctor in Computer Science and Mathematics
+>  Specialties: Python, C++, Linux\
+>  Masters in Computer Science
 
 ----
 
 Corporate Experience
 --------------------
 
-Since 2013
-:   *Data Scientist for [Airconomy](https://www.airconomy.com/)*
-    (Frankfurt am Main, Germany).
+Since 2023
+:   *Software Engineer for [Ziteo Medical](https://ziteo.com/)*
 
-    Data mining on various sources to forecast passenger demands over
-    airline networks.
+    I wrote and maintained a C++ application that enabled the Ziteo Imager to control a third-party ultrasound device, and display the ultrasound image in real time
+    
+    I dug through the device's api docs to understand its COM-based architecture and wrote a wrapper class to encapsulate the windows specific code from the grpc middleware layer and application logic
 
-2009-2012
-:   *PhD in Operations Research with
-    [Amadeus](http://www.amadeus.com/amadeus/amadeus.html)* (Sophia
-    Antipolis, France).
+    I wrote a mock version of the wrapper class to enable a linux-only simulation mode
 
-    Researched how to assign aircraft on an airline network in the most
-    efficient way. I authored several projects, including a C++ solver,
-    a Python suite of 20+ command line tools, and Hadoop data mining
-    scripts. I also worked as a teaching assistant at the university,
-    further improving my communication and public speaking skills.
+    I integrated the ultrasound app with the internal communications layer, the computer vision application, and the clinical GUI
 
-2008 (3 months)
-:   *Internship at [Rio Tinto Alcan](http://www.riotintoalcan.com/)*
-    (Clermont Ferrand, France).
 
-    Co-authored a C++ library for optimizing the revenue of a metal
-    factory. This work was published in the corporate journal of the
-    company.
 
-2007 (3 months)
-:   *Internship at [GE
-    Healthcare](http://www3.gehealthcare.com/en/Global_Gateway)* (Paris,
-    France).
+    I inherited the clinical GUI, and extended and refactored it in several ways. 
+    
+    Originally the GUI was written as a thin-layer where everything was owned by main(), and an external application controlled the page transitions
+    
+    As we added features, it was necessary to refactor and separate concerns: I distributed ownership of the gui objects so that ownership parent-child relationships mirrored the graphical ones
+    
+    This presented the problem that if two gui elements needed to talk to each other, then at the point of binding we'd need access to both, requiring passing references through multiple layers of function calls. To avoid this, I created a global singleton that kept track of long-range connections using python dictionaries and unique descriptive keys
 
-    Elaborated an UML spec for the refactoring of 20.000 lines of C++.
 
-Selected Open Source Contributions
-----------------------------------
 
-Python
-:   Contributor to [pulp-or](http://code.google.com/p/pulp-or/), a
-    linear programming Python library. Author of small tools, like
-    [michel](https://github.com/chmduquesne/michel), a command line
-    program providing bidirectionnal synchronization of google tasks
-    with text files.
+    I worked together with the gamma imaging team, taking their code and incrementally separating out functionality into classes, improving runtime (by multiple orders of magnitude in some cases), and enabling the processing of very large data files (up to 500 GB). 
 
-C++
-:   Author of
-    [yaposib](http://yaposib.readthedocs.org/en/latest/index.html), a
-    Python binding to COIN-OSI that is now supported by
-    [pulp-or](http://code.google.com/p/pulp-or/).
+    The main problem they were having is that their code would run extremely slowly on larger datasets. After going through their code, I quickly found the problem; in addition to loading in the whole dataset into memory, the code also created multiple intermediate copies, blowing up the total memory footprint to 5-10x the original data's size, and resorting to memory paging when the physical memory ran out. To solve the problem, I met with them to help work out a modification to their algorithm that would work on smaller chunks of data. I then separated out the data loading code into a separate class, and added the ability to load and save by chunks. To further improve speed, I met with them to figure out which parts of the processing pipeline were still in development and which were already stable, and I set up a preprocessing pipeline to allow the stable parts to be computed once, and the in-development parts to run faster.
 
-C
-:   Author of
-    [lazylpsolverlibs](https://code.google.com/p/lazylpsolverlibs/), a
-    set of proxy libraries targeting cplex, gurobi and xpress. I also
-    started writing
-    [sharebox](https://github.com/chmduquesne/sharebox-fs), a
-    distributed FUSE file system based on git.
+2021-2023
+:   *Software Engineer for [Noah Medical](https://www.noahmed.com/)*
+    
+    Developed and owned the Python repository, implementing Object Oriented Principles, and enabling easy reuse of utilities like publishing and listening to RTI DDS packets – this code is now used by multiple teams across the company
+    
+    Built Python application that combined robotic command data, and real time measurement data from an EM sensor to characterize instrument error – implemented forward kinematics using matrix math, and later extended application to use OptiTrack Motion Capture as well
+    
+    Created the “Engineering UI,” streamlining system operation by allowing users to manage logs, send state change commands to the system, visualize system state, and oversee open applications
+    
+    Modified Gen 4 cmake build system and C++ code to work cross-platform – Linux and Windows
+    
+    Added binarized logging and deserialization to the Gen 2 C++ robotics control platform, compressing telemetry logs by a factor of 5-10x. 
+    
+    Prototyped Gen 2 Fluidics system in Python and Arduino C, maintained the project for a year, then proposed a C++ solution for Gen 4 system using third-party fluidics device
 
-Java
-:   Author of [talkmyphone](http://code.google.com/p/talkmyphone/), an
-    android application allowing phone control via gtalk. It had 10.000+
-    downloads, and was forked 50 times. It was then successfully handed
-    over to [other developers](http://code.google.com/p/gtalksms/).
 
-Misc
-:   Lua, Ada, Bash, Makefile, m4, autotools, cmake... See my [github
-    résumé](http://resume.github.com/?chmduquesne). My
-    [kudorank](http://meta.ohloh.net/kudos/) on ohloh is 9, among the
-    top 2% of opensource developers.
+ML Research Experience
+----------------------
 
-Linux
-:   My daily operating system: I [blog](http://blog.chmd.fr) about it
-    sometimes.
+2019 - 2021
+:   *Masters student researching game AI* (advisor Joshua McCoy)
+
+    Created the Hanabi Open Agent Dataset (HOAD), hiring and training 6 undergrads to assist with the porting of 15 different Hanabi playing agents https://github.com/aronsar/hoad
+    
+    Developed and tested a pipeline to train neural imitators of each HOAD agent, evaluated their performance when playing with meta-learned agents, naive MLP agents, or other HOAD agents
+    
+    Helped reimplement MAML (Finn 2017) in TensorFlow 2.0 to meta-learn agent imitations in HOAD 
+    
+    Demonstrated through comprehensive experiments that meta-learned agents using MAML will outperform both randomly selected partners, and a naive form of ad-hoc learning, and used results to propose a solution to DeepMind’s Hanabi Ad-Hoc Challenge
+
+
+2019
+:   *Masters student researching video annotation* (advisor Zhou You)
+
+    Created visualizations for the failure modes of Cross-Task (Zhukov 2019) – a weakly supervised video annotation model for YouTube instructional videos, and identified the main sources of error
+    
+    Wrote regex parser for wikiHow to create a dataset of instructional guides to common tasks
+
+    Analyzed methods for finetuning Cross-Task on dataset to improve temporal action labeling
+
+2017 - 2018
+:   *Undergraduate researching image segmentation* (advisor Yong-Jae Lee)
+
+    Integrated Hide and Seek – a data augmentation algorithm – with DCSP image segmentation (Chaudhry 2017) to achieve an mIoU performance boost of 0.6% (then state of the art) on ImageNet
+    
+    Developed improvement for Hide and Seek, replacing the randomly sized patches used by Hide and Seek with patches sized according to the object size (obtained using a saliency map of the object); this method further improved the above model’s performance by up to 0.25%
+    
+    Conducted large hyperparameter study distributed among 32 GPUs on 8 Azure VMs
+
 
 Education
 ---------
 
-2009-2012
-:   *PhD in Mathematics and Computer Science at G-SCOP Laboratory*
-    (Grenoble, France).
+2019 - 2021
+:   *Masters in Computer Science at UC Davis*
 
-    Title: Integration of Fleet Deployment and of Passenger Service in
-    Airline Schedule Management. Done at Amadeus, in the Operation
-    Research team led by [Semi
-    Gabteni](http://www.linkedin.com/in/semigabteni). Advisors: [Denis
-    Naddef](http://www.g-scop.inpg.fr/~naddefd/), [Olivier
-    Briant](http://www.g-scop.inpg.fr/~brianto/index.php?page=1).
-    Defended in January 2013.
+    Title: Meta-Learning Action Conventions in Ad-Hoc Hanabi.
+    Defended in November 2021.
 
-2005-2009
-:   *MS in Computer Science in ENSIMAG* (Grenoble, France).
-
-    Top French school of Applied Mathematics and Computer Science with
-    highly selective recruitment.
-
-2002-2005
-:   *Preparatory classes in Lycée Thiers* (Marseille, France).
-
-    Mathematics and Physics courses before a national competitive
-    examination to Grandes Écoles.
+2014 - 2019
+:   *Double-Major in Computer Science and Mechanical Engineering at UC Davis*
 
 Activities and interests
 ------------------------
@@ -128,5 +117,4 @@ Activities
 
 ----
 
-> <chmd@chmd.fr> • +336 84 14 26 82 • 28 years old\
->  275, chemin du Petit Castel - 13100 Aix en Provence, FRANCE
+> <aronsar@gmail.com> • (650) 776 0807 • 1120 J St, Davis CA 95616
