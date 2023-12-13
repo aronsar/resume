@@ -8,19 +8,18 @@ Aron Sarmasi
 
 ----
 
-Corporate Experience
+Industry Experience
 --------------------
 
 Since 2023
 :   *Software Engineer for [Ziteo Medical](https://ziteo.com/)*
-
-    I wrote and maintained a C++ application that enabled the Ziteo Imager to control a third-party ultrasound device, and display the ultrasound image in real time
     
-    I dug through the device's api docs to understand its COM-based architecture and wrote a wrapper class to encapsulate the windows specific code from the grpc middleware layer and application logic
+    Enhanced Data Processing for Large Datasets: In collaboration with the gamma imaging team, restructured their data processing approach for datasets up to 500 GB. Modified the algorithm to process smaller chunks of data and introduced an efficient data loading and saving system, significantly improving processing speed and reducing memory usage.
+    
+    C++ Application Development and Linux-Based Simulation for Ultrasound Imaging: Developed and optimized a C++ application to interface with a third-party ultrasound device, utilizing its COM-based architecture. This included the creation of a wrapper class for efficient management of device-system interactions, enabling real-time ultrasound image processing. Additionally, implemented a mock version of this wrapper class to facilitate a Linux-based simulation mode, streamlining testing and development across different operating systems.
 
-    I wrote a mock version of the wrapper class to enable a linux-only simulation mode
+    Refactored Clinical GUI Using Python: Took over the development of the clinical GUI and executed a comprehensive refactoring. Distributed object ownership to reflect their graphical hierarchy and created a global singleton for managing connections between GUI elements. This restructuring enhanced the GUI's functionality and adaptability.
 
-    I integrated the ultrasound app with the internal communications layer, the computer vision application, and the clinical GUI
 
 
 
