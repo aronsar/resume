@@ -8,6 +8,30 @@ Aron Sarmasi
 
 ----
 
+Industry Experience
+--------------------
+
+Since 2023
+:   *Software Engineer for [Ziteo Medical](https://ziteo.com/)*
+    
+    *Improved Imager Performance:* Collaboratively worked with the gamma imaging team to transform their data processing for handling up to 500 GB datasets. Addressed core issue where the original code not only loaded the entire dataset into memory but also created multiple intermediate copies, increasing memory usage to 5-10 times the original size. Resolved this by modifying the algorithm to work on smaller data chunks, introducing a class for efficient data loading and saving by chunks, and setting up a preprocessing pipeline to speed up the stable parts of the processing pipeline, thereby significantly improving processing speed and reducing memory usage.
+
+    *Ultrasound App:* Developed, integrated, and maintained a C++ application to interface with a third-party ultrasound device, employing its COM-based architecture. Created a wrapper class to manage device-system interactions for real-time ultrasound image processing. Also implemented a mock version of the wrapper class, enabling a Linux-based simulation mode that enhanced cross-platform testing and development.
+
+    *Clinical GUI:* Refactored the clinical GUI, transitioning from a thin-layer structure to a more distributed ownership model, aligning parent-child relationships of GUI objects with their graphical hierarchy. Implemented a global singleton to manage long-range connections between GUI elements using Python dictionaries and descriptive keys, improving GUI functionality and adaptability.
+
+
+2021-2023
+:   *Software Engineer for [Noah Medical](https://www.noahmed.com/)*
+    
+    Led the development and maintenance of the Python repository for a haptic-feedback controlled surgical robot, writing applications and utilities now used by several other teams, such as RTI DDS packet handling, a unified test and simulation framework for the robot instrument kinematics, a Qt-based GUI for controlling the robot and visualizing its data, and a fluidics control application.
+
+    *Instrument Characterization:* Built a Python application that merged robotic command data with real-time electromagnetic sensor measurements (and later OptiTrack Motion Capture measurements) to characterize instrument error. Included the implementation of forward kinematics using matrix libraries numpy and scipy.
+
+    *Engineering UI:* Developed the Engineering UI, an Qt-based GUI for controlling the system, handling and displaying logs, and visualizing system status. Showed a real time visualization of the articulated instrument, using the same backend as the Instrument Characterization.
+
+    *Fluidics App:* Developed, maintained, and extended an application to control the fluidics system. Began as a Python app talking to an arduino to control the valves themselves, and later turned into a C++ subsystem controlling the devices through etherCAT.
+
 ML Research Experience
 ----------------------
 
@@ -25,31 +49,6 @@ ML Research Experience
 :   *Undergraduate researching image segmentation* (Advisor: Yong-Jae Lee)
 
     Integrated the data augmentation algorithm Hide and Seek with DCSP image segmentation (Chaudhry 2017) to achieve an mIoU performance boost of 0.6% on ImageNet, and further developed an improvement for Hide and Seek by replacing the randomly sized patches with object size-based patches (determined using a saliency map of the object). This refinement further improved the model’s performance by 0.25%, as verified through a hyperparameter study using 32 GPUs on 8 Azure VMs.
-
-Industry Experience
---------------------
-
-Since 2023
-:   *Software Engineer for [Ziteo Medical](https://ziteo.com/)*
-    
-    Improved Imager Performance: Collaboratively worked with the gamma imaging team to transform their data processing for handling up to 500 GB datasets. Addressed core issue where the original code not only loaded the entire dataset into memory but also created multiple intermediate copies, increasing memory usage to 5-10 times the original size. Resolved this by modifying the algorithm to work on smaller data chunks, introducing a class for efficient data loading and saving by chunks, and setting up a preprocessing pipeline to speed up the stable parts of the processing pipeline, thereby significantly improving processing speed and reducing memory usage.
-
-    Ultrasound App: Developed, integrated, and maintained a C++ application to interface with a third-party ultrasound device, employing its COM-based architecture. Created a wrapper class to manage device-system interactions for real-time ultrasound image processing. Also implemented a mock version of the wrapper class, enabling a Linux-based simulation mode that enhanced cross-platform testing and development.
-
-    Clinical GUI: Refactored the clinical GUI, transitioning from a thin-layer structure to a more distributed ownership model, aligning parent-child relationships of GUI objects with their graphical hierarchy. Implemented a global singleton to manage long-range connections between GUI elements using Python dictionaries and descriptive keys, improving GUI functionality and adaptability.
-
-
-2021-2023
-:   *Software Engineer for [Noah Medical](https://www.noahmed.com/)*
-    
-    Led the development and maintenance of the Python repository for a haptic-feedback controlled surgical robot, writing applications and utilities now used by several other teams, such as RTI DDS packet handling, a unified test and simulation framework for the robot instrument kinematics, a Qt-based GUI for controlling the robot and visualizing its data, and a fluidics control application.
-
-    Instrument Characterization: Built a Python application that merged robotic command data with real-time electromagnetic sensor measurements (and later OptiTrack Motion Capture measurements) to characterize instrument error. Included the implementation of forward kinematics using matrix libraries numpy and scipy.
-
-    Engineering UI: Developed the Engineering UI, an Qt-based GUI for controlling the system, handling and displaying logs, and visualizing system status. Showed a real time visualization of the articulated instrument, using the same backend as the Instrument Characterization.
-
-    Fluidics App: Developed, maintained, and extended an application to control the fluidics system. Began as a Python app talking to an arduino to control the valves themselves, and later turned into a C++ subsystem controlling the devices through etherCAT.
-
 
 Education
 ---------
@@ -77,4 +76,4 @@ Activities
 
 ----
 
-> <aronsar@gmail.com> • (650) 776 0807 • 1120 J St, Davis CA 95616
+> Email: (my first name)sar at gmail.com

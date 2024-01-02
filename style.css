@@ -7,12 +7,19 @@
  * https://creativecommons.org/licenses/by-sa/3.0/deed.en_US
  */
 
+/* @page {
+    size: A4; 
+    margin: 11mm; 
+} */
+
+
 /* Whole document */
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin: auto;
+    margin-bottom: 50mm;
     background: #FFFFFF;
-    padding: 10px 10px 10px 10px;
+    width: 210mm;
 }
 
 /* Title of the resume */
@@ -52,6 +59,7 @@ dt {
     float: left;
     clear: left;
     width: 17%;
+    font-size: 15px;
     /*font-weight: bold;*/
 }
 dd {
@@ -60,11 +68,12 @@ dd {
 p {
     margin-top:0;
     margin-bottom:7px;
+    font-size: 15px;
 }
 
 /* Blockquotes */
 blockquote {
-    text-align: center
+    text-align: center;
 }
 
 /* Links */
