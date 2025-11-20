@@ -12,7 +12,7 @@ Industry Experience
 --------------------
 
 Since 2023
-:   *Software Engineer for [Ziteo Medical](https://ziteo.com/)*
+:   *Software Engineer for Ziteo Medical*
     
     *Improved Imager Performance:* Collaboratively worked with the gamma imaging team to transform their data processing for handling up to 500 GB datasets. Addressed core issue where the original code not only loaded the entire dataset into memory but also created multiple intermediate copies, increasing memory usage to 5-10 times the original size. Resolved this by modifying the algorithm to work on smaller data chunks, introducing a class for efficient data loading and saving by chunks, and setting up a preprocessing pipeline to speed up the stable parts of the processing pipeline, thereby significantly improving processing speed and reducing memory usage.
 
