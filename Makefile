@@ -10,7 +10,7 @@ move_to_site: index.html style.css
 	@echo "Moving built files to ../aronsar.github.io"
 	-mkdir -p ../aronsar.github.io
 	mv index.html ../aronsar.github.io/
-	mv style.css ../aronsar.github.io/
+	cp style.css ../aronsar.github.io/
 
 clean:
 	rm -f *.html *.pdf *.docx *.txt
