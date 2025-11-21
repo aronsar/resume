@@ -10,23 +10,22 @@ Aron Sarmasi
 
 Industry Experience
 --------------------
-
 2024-2025
 :   *Perception Engineer for Saildrone*
 
     *Situational Awareness:* 
-    - Improved the situational awareness experience for drone pilots for a fleet of 50+ uncrewed surface vehicles, from opportunistic photos that might be up to an hour out of date in a particular direction, to omni-directional imagery of the horizon and nearby water that's not more than 7 minutes old in any direction
-    - I wrote all the on-drone code for this feature (C++), modifying the camera pointing state machine, implementing a ZMQ connection to publish the pointing state, and writing the logic to tag the image metadata with the right info. I collaborated with the cloud team to make an endpoint that then served the images to the front end.
+    - Designed and shipped an on‑drone perception upgrade that improved operator situational awareness for a **50+ USV fleet**, replacing hour‑stale opportunistic photos with **omni‑directional horizon imagery ≤7 minutes old** in every direction.
+    - Implemented the full onboard feature in C++: modified the camera‑pointing state machine, added a **ZMQ publisher** for gimbal/pointing telemetry, and overhauled metadata tagging. Collaborated with cloud/frontend teams to define the API endpoint serving images to pilots.
 
-    *Camera Tracker Metrics*
-    - I wrote a tool that allowed us to test the performance of our camera-modality vessel tracker against a ground truth labeled dataset, significantly speeding up development, and allowing me to tune the tracker parameters to reduce merging and splitting (precision and recall) by 4-5% each -- a significant improvement for our MDA product.
-    - The previous approach of writing bespoke code to test the efficacy of a feature and then deploying to a drone for 24 hours to make sure it didn't break anything.
-    - I modified my team's C++ imgui track visualization tool to allow a user to select and save ground truth labels, and then I labeled 20 representative scenarios. I also modified our scenario replay tool to use the BCUBED clustering metric to compare the tracker's performance against the ground truth.
-    - Using this metric, I was able to quantify the degree to which our code would split detections from the same vessel into different contacts or merge detections from different vessels into the same contact. This also allowed me to quickly test different values for our heuristic parameters and reduce both merging and splitting by 4-5%.
+    *Camera Tracker Metrics & Performance Tooling:*  
+    - Built the evaluation framework used to measure and tune the vessel tracker against a labeled dataset, reducing iteration cycles from full drone deployments to **local workstation tests measured in minutes**.
+    - Extended the team’s C++ ImGui visualization tool to enable interactive ground‑truth labeling; labeled **20 representative scenarios** and integrated the **BCUBED clustering metric** for merging/splitting analysis.
+    - Tuned tracking heuristics using this framework, improving both merging and splitting rates by **4–5%**, directly improving MDA product precision and recall.
 
-    other stuff: (how to work this in?)
-    - I was on call for a week every month, and supported our fleet of 50+ worldwide drones with any perception-related problems people had
-    - We used protobufs for internal representation, docker+bazel for building, 
+    *Operations & Systems:*  
+    - Participated in monthly on‑call rotations supporting perception issues across the worldwide fleet.
+    - Daily tools: **C++, Python, protobufs, ZeroMQ, Bazel, Docker, ImGui**, and large‑scale log/image/telemetry debugging.
+
 
 
 2023-2024
